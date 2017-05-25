@@ -1,4 +1,5 @@
 // Check that the clang driver can invoke gcc to compile Fortran.
+// XFAIL: *
 
 // RUN: %clang -target x86_64-unknown-linux-gnu -integrated-as -c %s -### 2>&1 \
 // RUN:   | FileCheck --check-prefix=CHECK-OBJECT %s
