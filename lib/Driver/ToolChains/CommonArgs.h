@@ -20,9 +20,9 @@ namespace clang {
 namespace driver {
 namespace tools {
 
-bool needFortranLibs(const Driver &D, const ArgList &Args);
+bool needFortranLibs(const Driver &D, const llvm::opt::ArgList ArgList &Args);
 
-bool needFortranMain(const Driver &D, const ArgList &Args);
+bool needFortranMain(const Driver &D, const llvm::opt::ArgList ArgList &Args);
 
 void addPathIfExists(const Driver &D, const Twine &Path,
                      ToolChain::path_list &Paths);
