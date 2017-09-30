@@ -805,6 +805,11 @@ void FlangFrontend::ConstructJob(Compilation &C, const JobAction &JA,
   LowerCmdArgs.push_back("-opt"); LowerCmdArgs.push_back(Args.MakeArgString(OptOStr));
   LowerCmdArgs.push_back("-terse"); LowerCmdArgs.push_back("1");
   LowerCmdArgs.push_back("-inform"); LowerCmdArgs.push_back("warn");
+
+  if (getToolChain().getArch() == llvm::Triple::ppc64) {
+    LowerCmdArgs.push_back("-endian"); LowerCmdArgs.push_back("1");
+  }
+
   LowerCmdArgs.append(CommonCmdArgs.begin(), CommonCmdArgs.end()); // Append common arguments
   LowerCmdArgs.push_back("-x"); LowerCmdArgs.push_back("51"); LowerCmdArgs.push_back("0x20");
   LowerCmdArgs.push_back("-x"); LowerCmdArgs.push_back("119"); LowerCmdArgs.push_back("0xa10000");
